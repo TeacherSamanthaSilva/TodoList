@@ -18,3 +18,7 @@ function Todo() {
 }
 
 export default Todo;
+
+function handleChangeInput(event) {
+  const inputTask = event.target.value;
+}
