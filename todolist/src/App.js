@@ -24,3 +24,28 @@ function handleChangeInput(event) {
 }
 
 <input type="text" placeholder="Adicione uma tarefa" onChange={handleChangeInput} />
+
+import React, { useState } from 'react'; // <------ importar o useState do React
+
+function Todo() {
+	const [task, setTask] = useState(""); // <------ estado
+
+  // ...
+}
+
+function handleChangeInput(event) {
+  let inputTask = event.target.value;
+  
+  setTask(inputTask); // <----- atualizamos o estado "task" atraves de "setTask"
+}
+
+const [itemsList, setItemsList] = useState([]); // <----- será um Array
+
+// Adiciona um novo elemento na lista
+function handleAddItemToList(event) {
+  event.preventDefault(); // <----- desabilita o refresh na pagina ao enviar um formulário
+  
+  setItemsList([...itemsList, task]); // <----- Copia todos os items ja existentes e entao adiociona o novo item
+}
+
+<button type="submit" onClick={handleAddItemToList}>Adicionar</button>
