@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+// Importa meu componente List
+import List from './components/List';
 
 function Todo() {
   return (
@@ -49,3 +51,35 @@ function handleAddItemToList(event) {
 }
 
 <button type="submit" onClick={handleAddItemToList}>Adicionar</button>
+
+function handleAddItemToList(event) {
+  event.preventDefault();
+  
+  setItemsList([...itemsList, text]);
+  
+  // Limpa o campo de input
+  setTask("");
+}
+
+<input type="text" placeholder="Adicione uma tarefa" onChange={handleInputTask} value={task} />
+
+// Verifica se tem um item para adicionar
+if(task) {
+  setItemsList([...itemsList, task]);
+  
+  // Limpa o campo de input
+  setTask("");
+}
+
+/ src/components/List/index.js
+import React from 'react';
+
+function List (props) {
+  return(
+    <ul className="todo-list" >
+      {props.itemsList.map(item => (<li>{item}</li> ))}
+    </ul>
+  )
+}
+
+export default List;
