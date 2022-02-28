@@ -22,3 +22,5 @@ export default Todo;
 function handleChangeInput(event) {
   const inputTask = event.target.value;
 }
+
+<input type="text" placeholder="Adicione uma tarefa" onChange={handleChangeInput} />
